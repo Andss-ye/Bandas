@@ -3,7 +3,7 @@ from instrumento import *
 
 if __name__ == "__main__":
     # Crear una banda con algunos instrumentos
-    b = Banda("Los Rítmicos", [Piano(False), Guitarra(False), Saxofon(False), Bajo(False)])
+    b = Banda("Los Rítmicos", [Piano(), Guitarra(), Saxofon(), Bajo(), Flauta()])
     
     # Crear músicos aleatorios
     b.crear()
@@ -13,12 +13,11 @@ if __name__ == "__main__":
     
     # Dar la opción de afinar los instrumentos
     opcion = input("¿Deseas afinar los instrumentos de la banda? (S/N): ").strip().lower()
-    
+    b.consultar()
+    print ("\nTocando sonidos de la banda:\n")
     if opcion == 's':
         b.afinar_instrumentos()  # Llama al método para afinar los instrumentos
-    else: 
-        b.afinar_instrumentos()
-
+    for Musico in b.musicos:
+        Musico.tocar()    # Consultar la información actualizada de la banda
     
-    # Consultar la información actualizada de la banda
-    b.consultar()
+    

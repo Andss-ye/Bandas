@@ -5,21 +5,24 @@ from random import choice, randint
 class Banda:
     def __init__(self, nombre, instrumentos):
         self.nombre = nombre
-        self.integrantes = []
+        self.integrantes = ["Julian", "Roberto", "Cristian", "Manuel", "Andrés"]
+        self.musicos = []
         self.instrumentos = instrumentos
     def tocar(self):
         pass
     def crear(self):
         for i in range(0, randint(1, 5)):
             instrumento_random = choice(self.instrumentos)
-            musico = Musico("Musico"+str(i+1), instrumento_random)
-            self.integrantes.append(musico)
+            for i in range(0, randint(1,5)):
+                nombre_random = choice(self.integrantes)
+            musico = Musico(nombre_random, instrumento_random)
+            self.musicos.append(musico)
 
     def afinar_instrumentos(self):
-        for musico in self.integrantes:
+        for musico in self.musicos:
             musico.afinar_instrumento()
 
     def consultar(self):
         print("Nombre de la banda: ", self.nombre)
         print("Instrumentos en la banda: ", [instrumento.nombre for instrumento in self.instrumentos])
-        print("Integrantes de la banda: ", [(musico.nombre, musico.instrumento_toca.nombre) for musico in self.integrantes])
+        print("Integrantes de la banda: ", [(musico.nombre, musico.instrumento_toca.nombre) for musico in self.musicos])

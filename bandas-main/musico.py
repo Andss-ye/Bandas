@@ -4,7 +4,7 @@ class Musico:
         self.instrumento_toca = instrumento_toca
 
     def tocar(self):
-        print(f"{self.nombre} está tocando {self.instrumento_toca.nombre}")
+        self.instrumento_toca.tocar()
 
     def afinar_instrumento(self):
         self.instrumento_toca.afinar()
